@@ -1,0 +1,49 @@
+USE apptareas;
+<!-- Creamos la tabla Compañeros-->
+CREATE TABLE Compañeros(
+<!-- Metemos los tipos de datos y su clave en el caso de que tenga, esta tabla contiene el nombre de los compañeros de piso y su identificador -->
+	idNombres tinyint UNSIGNED AUTO_INCREMENT NOT NULL,
+	Nombre varchar(80) NOT NULL,
+	CONSTRAINT PK_id_nombres PRIMARY KEY (idNombres)
+	);
+	
+<!-------------------------------------------->
+
+USE apptareas;
+<!-- Creamos la tabla Tareas-->
+CREATE TABLE Tareas(
+<!-- Metemos los tipos de datos y su clave en el caso de que tenga, esta tabla contiene las tareas que deben realizar y su identificador-->
+	idTareas tinyint UNSIGNED AUTO_INCREMENT NOT NULL,
+	Tareas varchar(80) NOT NULL,
+	CONSTRAINT PK_id_tareas PRIMARY KEY (idTareas)
+	);
+	
+<!--------------------------------------------->
+
+USE apptareas;
+<!-- Creamos la tabla Reparto de Tareas-->
+CREATE TABLE Reparto_tareas(
+<!-- Metemos los tipos de datos y su clave en el caso de que tenga, esta tabla les indica que tarea tiene qu ehacer cada uno y cuando hacerla-->
+	idNombres tinyint UNSIGNED  NOT NULL,
+	idTareas tinyint(3) UNSIGNED  NOT NULL,
+	fecha Date NOT NULL,
+	CONSTRAINT FK_id_nombres FOREIGN KEY (idNombres) References Compañeros (idNombres),
+	CONSTRAINT FK_id_tareas FOREIGN KEY (idTareas) References Tareas (idTareas),
+	CONSTRAINT PK_id_nombrefecha PRIMARY KEY (IdNombres, fecha)
+	);
+	
+<!--------------------------------------------->
+
+<!-- Creamo sun aclave unica para que no se pueda poner la misma tarea el mismo dia-->
+CREATE UNIQUE INDEX IN_tareasfecha ON Reparto_tareas (idTareas, fecha);
+	
+<!-------------------------------------------->
+
+<!-- Creamos la tabla Lista de la compra-->
+USE apptareas;
+<!-- Metemos los tipos de datos y su clave en el caso de que tenga, esta tabla les indica cuantos producto sy que producton deben de comprar-->
+CREATE TABLE Lista_compra(
+	producto varchar(80) NOT NULL,
+	cantidad tinyint UNSIGNED NOT NULL
+	);
+	
