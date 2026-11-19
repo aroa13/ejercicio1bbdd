@@ -1,0 +1,49 @@
+USE apptareas;
+
+<!-- Insertamos los compañeros de piso (el id es AUTO_INCREMENT, no hace falta ponerlo) -->
+INSERT INTO Compañeros (Nombre) VALUES
+	('Lucía'),
+	('Carlos'),
+	('Marta'),
+	('Javier');
+
+<!-------------------------------------------->
+
+USE apptareas;
+
+<!-- Insertamos las tareas que hay que realizar -->
+INSERT INTO Tareas (Tareas) VALUES
+	('Fregar los platos'),
+	('Barrer y fregar el suelo'),
+	('Limpiar el baño'),
+	('Sacar la basura'),
+	('Limpiar la cocina');
+
+<!--------------------------------------------->
+
+USE apptareas;
+
+<!-- Insertamos el reparto de tareas: quién hace qué y qué día.
+     Los ids corresponden al orden de inserción de las tablas anteriores -->
+INSERT INTO Reparto_tareas (idNombres, idTareas, fecha) VALUES
+	(1, 1, '2026-11-23'),
+	(2, 2, '2026-11-23'),
+	(3, 3, '2026-11-23'),
+	(4, 4, '2026-11-23'),
+	(1, 5, '2026-11-24'),
+	(2, 1, '2026-11-24'),
+	(3, 2, '2026-11-24'),
+	(4, 3, '2026-11-24');
+
+<!-------------------------------------------->
+
+USE apptareas;
+
+<!-- Insertamos los productos de la lista de la compra y su cantidad -->
+INSERT INTO Lista_compra (producto, cantidad) VALUES
+	('Leche', 6),
+	('Pan', 2),
+	('Huevos', 12),
+	('Papel higiénico', 8),
+	('Detergente', 1),
+	('Arroz', 3);
