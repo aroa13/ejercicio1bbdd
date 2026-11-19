@@ -1,0 +1,32 @@
+<!--Crear columna de descripción opcional-->
+USE apptareas;
+ALTER TABLE Tareas
+ADD COLUMN Descripcion varchar(255) NULL;
+
+<!--Añado una perona nueva (un dato en cada tabla)-->
+USE apptareas;
+INSERT INTO Compañeros (Nombre) VALUES ('Elena');
+INSERT INTO Tareas (Tareas) VALUES ('Pasar la aspiradora');
+INSERT INTO Reparto_tareas (idNombres, idTareas, fecha) VALUES (5, 6, '2026-11-25');
+INSERT INTO Lista_compra (producto, cantidad) VALUES ('Café', 2);
+
+<!-- Modificamos diferentes filas -->
+UPDATE Compañeros SET Nombre = 'Lucía Fernández' WHERE idNombres = 1;
+UPDATE Tareas SET Descripcion = 'Incluye sartenes y ollas' WHERE idTareas = 1;
+UPDATE Lista_compra SET cantidad = 4 WHERE producto = 'Leche';
+
+<!-- Comprobamos las claves -->
+INSERT INTO Reparto_tareas (idNombres, idTareas, fecha) VALUES (1, 2, '2026-11-23');
+<!-- ya tiene tarea ese dia asiqe comprobamos la PK -->
+INSERT INTO Reparto_tareas (idNombres, idTareas, fecha) VALUES (1, 99, '2026-11-26');
+<!-- No he puesto 99 tareas asique comprobamos la FK -->
+INSERT INTO Compañeros (Nombre) VALUES (NULL);
+<!-- El nombre no puede ser nulo -->
+INSERT INTO Tareas (Tareas) VALUES ('Limpiar ventanas');
+<!-- Ponemos la tarea sin descripcion para ver si hemos puesto bien el alter -->
+
+<!-- Eliminamos algunos datos -->
+DELETE FROM Lista_compra WHERE producto = 'Café';
+DELETE FROM Reparto_tareas WHERE idNombres = 5;
+DELETE FROM Compañeros WHERE idNombres = 5;
+DELETE FROM Tareas WHERE idTareas = 7;
