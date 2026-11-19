@@ -1,5 +1,4 @@
 USE apptareas;
-
 <!-- Insertamos los compañeros de piso (el id es AUTO_INCREMENT, no hace falta ponerlo) -->
 INSERT INTO Compañeros (Nombre) VALUES
 	('Lucía'),
@@ -10,7 +9,6 @@ INSERT INTO Compañeros (Nombre) VALUES
 <!-------------------------------------------->
 
 USE apptareas;
-
 <!-- Insertamos las tareas que hay que realizar -->
 INSERT INTO Tareas (Tareas) VALUES
 	('Fregar los platos'),
@@ -22,7 +20,6 @@ INSERT INTO Tareas (Tareas) VALUES
 <!--------------------------------------------->
 
 USE apptareas;
-
 <!-- Insertamos el reparto de tareas: quién hace qué y qué día-->
 INSERT INTO Reparto_tareas (idNombres, idTareas, fecha) VALUES
 	(1, 1, '2026-11-23'),
@@ -37,7 +34,6 @@ INSERT INTO Reparto_tareas (idNombres, idTareas, fecha) VALUES
 <!-------------------------------------------->
 
 USE apptareas;
-
 <!-- Insertamos los productos de la lista de la compra y su cantidad -->
 INSERT INTO Lista_compra (producto, cantidad) VALUES
 	('Leche', 6),
