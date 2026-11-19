@@ -23,8 +23,7 @@ INSERT INTO Tareas (Tareas) VALUES
 
 USE apptareas;
 
-<!-- Insertamos el reparto de tareas: quién hace qué y qué día.
-     Los ids corresponden al orden de inserción de las tablas anteriores -->
+<!-- Insertamos el reparto de tareas: quién hace qué y qué día-->
 INSERT INTO Reparto_tareas (idNombres, idTareas, fecha) VALUES
 	(1, 1, '2026-11-23'),
 	(2, 2, '2026-11-23'),
